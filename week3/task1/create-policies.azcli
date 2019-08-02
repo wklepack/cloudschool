@@ -12,10 +12,10 @@ az policy definition create --name 'disk-allowed-name-policy' --display-name 'Al
 
 # Create assignements
 
-az policy assignment create --name 'Allowed resource group names.' --scope "subscriptions/b3dad90b-23b0-4991-8479-6070b0f31b5b" --policy "resource-group-allowed-name-policy"
-az policy assignment create --name 'Allowed storages names.' --scope "subscriptions/b3dad90b-23b0-4991-8479-6070b0f31b5b" --policy 'storage-allowed-name-policy'
-az policy assignment create --name 'Allowed virtual machines names.' --scope "subscriptions/b3dad90b-23b0-4991-8479-6070b0f31b5b" --policy 'virtual-machine-allowed-name-policy'
-az policy assignment create --name 'Allowed virtual networks names.' --scope "subscriptions/b3dad90b-23b0-4991-8479-6070b0f31b5b" --policy 'virtual-networks-allowed-name-policy' 
-az policy assignment create --name 'Allowed disks names.' --scope "subscriptions/b3dad90b-23b0-4991-8479-6070b0f31b5b" --policy 'disk-allowed-name-policy' 
+az policy assignment create --name 'Allowed resource group names.' --scope "/subscriptions/b3dad90b-23b0-4991-8479-6070b0f31b5b" --policy "resource-group-allowed-name-policy"
+az policy assignment create --name 'Allowed storages names.' --scope "/subscriptions/b3dad90b-23b0-4991-8479-6070b0f31b5b" --policy 'storage-allowed-name-policy'
+az policy assignment create --name 'Allowed virtual machines names.' --scope "/subscriptions/b3dad90b-23b0-4991-8479-6070b0f31b5b" --policy 'virtual-machine-allowed-name-policy'
+az policy assignment create --name 'Allowed virtual networks names.' --scope "/subscriptions/b3dad90b-23b0-4991-8479-6070b0f31b5b" --policy 'virtual-networks-allowed-name-policy'
+az policy assignment create --name 'Allowed disks names.' --scope "/subscriptions/b3dad90b-23b0-4991-8479-6070b0f31b5b" --policy 'disk-allowed-name-policy'
 
 az policy definition list --query 
