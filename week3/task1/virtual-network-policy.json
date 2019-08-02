@@ -4,19 +4,19 @@
         "allOf": [
           {
             "field": "type",
-            "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+            "equals": "Microsoft.Network/virtualNetworks"
           },
           {
             "field": "name",
-            "notLike": "*-test-rg"
+            "notLike": "*-test-vnet"
           },
           {
             "field": "name",
-            "notLike": "*-qa-rg"
+            "notLike": "*-qa-vnet"
           },
           {
             "field": "name",
-            "notLike": "*-prod-rg"
+            "notLike": "*-prod-vnet"
           }
         ]
       },

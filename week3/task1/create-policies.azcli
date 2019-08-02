@@ -1,0 +1,8 @@
+az policy definition create --name 'allow-multiple-name-patterns' 
+--display-name 'Allow one of many name patterns to be used for resources.' 
+--description 'Allow one of many name patterns to be used for resources.' 
+--rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/TextPatterns/allow-multiple-name-patterns/azurepolicy.rules.json' 
+--params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/TextPatterns/allow-multiple-name-patterns/azurepolicy.parameters.json' 
+--mode All
+az policy assignment create --name <assignmentname> --scope <scope> --policy "allow-multiple-name-patterns" 
+az group delete --name myResourceGroup --yes

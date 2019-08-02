@@ -4,19 +4,19 @@
         "allOf": [
           {
             "field": "type",
-            "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+            "equals": "Microsoft.Compute/virtualMachines"
           },
           {
             "field": "name",
-            "notLike": "*-test-rg"
+            "notLike": "*-test-vm####"
           },
           {
             "field": "name",
-            "notLike": "*-qa-rg"
+            "notLike": "*-qa-vm"
           },
           {
             "field": "name",
-            "notLike": "*-prod-rg"
+            "notLike": "*-prod-vm####"
           }
         ]
       },
