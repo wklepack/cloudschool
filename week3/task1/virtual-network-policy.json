@@ -1,27 +1,25 @@
 {
-    "policyRule": {
-      "if": {
+    "if": {
         "allOf": [
-          {
-            "field": "type",
-            "equals": "Microsoft.Network/virtualNetworks"
-          },
-          {
-            "field": "name",
-            "notLike": "*-test-vnet"
-          },
-          {
-            "field": "name",
-            "notLike": "*-qa-vnet"
-          },
-          {
-            "field": "name",
-            "notLike": "*-prod-vnet"
-          }
+            {
+                "field": "type",
+                "equals": "Microsoft.Network/virtualNetworks"
+            },
+            {
+                "field": "name",
+                "notLike": "*-test-vnet"
+            },
+            {
+                "field": "name",
+                "notLike": "*-qa-vnet"
+            },
+            {
+                "field": "name",
+                "notLike": "*-prod-vnet"
+            }
         ]
-      },
-      "then": {
+    },
+    "then": {
         "effect": "audit"
-      }
     }
-  }
+}

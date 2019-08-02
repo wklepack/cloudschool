@@ -1,27 +1,25 @@
 {
-    "policyRule": {
-      "if": {
+    "if": {
         "allOf": [
-          {
-            "field": "type",
-            "equals": "Microsoft.Compute/virtualMachines"
-          },
-          {
-            "field": "name",
-            "notLike": "*-test-vm####"
-          },
-          {
-            "field": "name",
-            "notLike": "*-qa-vm"
-          },
-          {
-            "field": "name",
-            "notLike": "*-prod-vm####"
-          }
+            {
+                "field": "type",
+                "equals": "Microsoft.Compute/virtualMachines"
+            },
+            {
+                "field": "name",
+                "notLike": "*-test-vm####"
+            },
+            {
+                "field": "name",
+                "notLike": "*-qa-vm"
+            },
+            {
+                "field": "name",
+                "notLike": "*-prod-vm####"
+            }
         ]
-      },
-      "then": {
+    },
+    "then": {
         "effect": "audit"
-      }
     }
-  }
+}

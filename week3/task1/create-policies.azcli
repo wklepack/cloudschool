@@ -1,8 +1,21 @@
-az policy definition create --name 'allow-multiple-name-patterns' 
---display-name 'Allow one of many name patterns to be used for resources.' 
---description 'Allow one of many name patterns to be used for resources.' 
---rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/TextPatterns/allow-multiple-name-patterns/azurepolicy.rules.json' 
---params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/TextPatterns/allow-multiple-name-patterns/azurepolicy.parameters.json' 
---mode All
-az policy assignment create --name <assignmentname> --scope <scope> --policy "allow-multiple-name-patterns" 
-az group delete --name myResourceGroup --yes
+# Create definitions
+
+az policy definition create --name 'resource-group-allowed-name-policy' --display-name 'Allowed resource group names.' --description 'This policy enables you to restrict the names your organization can specify when deploying resources group.' --rules 'https://raw.githubusercontent.com/wklepack/cloudschool/master/week3/task1/resource-group-policy.json' --mode All
+
+az policy definition create --name 'storage-allowed-name-policy' --display-name 'Allowed storages names.' --description 'This policy enables you to restrict the names your organization can specify when deploying storages.' --rules 'https://raw.githubusercontent.com/wklepack/cloudschool/master/week3/task1/storages-policy.json' --mode All
+
+az policy definition create --name 'virtual-machine-allowed-name-policy' --display-name 'Allowed virtual machines names.' --description 'This policy enables you to restrict the names your organization can specify when deploying virtual machines.' --rules 'https://raw.githubusercontent.com/wklepack/cloudschool/master/week3/task1/virtual-machine-policy.json' --mode All
+
+az policy definition create --name 'virtual-networks-allowed-name-policy' --display-name 'Allowed virtual networks names.' --description 'This policy enables you to restrict the names your organization can specify when deploying virtual netrowks.' --rules 'https://raw.githubusercontent.com/wklepack/cloudschool/master/week3/task1/virtual-network-policy.json' --mode All
+
+az policy definition create --name 'disk-allowed-name-policy' --display-name 'Allowed disk names.' --description 'This policy enables you to restrict the names your organization can specify when deploying disks.' --rules 'https://raw.githubusercontent.com/wklepack/cloudschool/master/week3/task1/disk-policy.json' --mode All
+
+# Create assignements
+
+az policy assignment create --name 'Allowed resource group names.' --scope "subscriptions/b3dad90b-23b0-4991-8479-6070b0f31b5b" --policy "resource-group-allowed-name-policy"
+az policy assignment create --name 'Allowed storages names.' --scope "subscriptions/b3dad90b-23b0-4991-8479-6070b0f31b5b" --policy 'storage-allowed-name-policy'
+az policy assignment create --name 'Allowed virtual machines names.' --scope "subscriptions/b3dad90b-23b0-4991-8479-6070b0f31b5b" --policy 'virtual-machine-allowed-name-policy'
+az policy assignment create --name 'Allowed virtual networks names.' --scope "subscriptions/b3dad90b-23b0-4991-8479-6070b0f31b5b" --policy 'virtual-networks-allowed-name-policy' 
+az policy assignment create --name 'Allowed disks names.' --scope "subscriptions/b3dad90b-23b0-4991-8479-6070b0f31b5b" --policy 'disk-allowed-name-policy' 
+
+az policy definition list --query 
