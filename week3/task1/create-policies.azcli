@@ -18,4 +18,4 @@ az policy assignment create --name 'Allowed virtual machines names.' --scope "/s
 az policy assignment create --name 'Allowed virtual networks names.' --scope "/subscriptions/b3dad90b-23b0-4991-8479-6070b0f31b5b" --policy 'virtual-networks-allowed-name-policy'
 az policy assignment create --name 'Allowed disks names.' --scope "/subscriptions/b3dad90b-23b0-4991-8479-6070b0f31b5b" --policy 'disk-allowed-name-policy'
 
-az policy definition list --query 
+az policy definition list --query "[?policyType=='Custom']"
