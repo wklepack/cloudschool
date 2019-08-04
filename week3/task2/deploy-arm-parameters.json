@@ -15,7 +15,7 @@
             "value": "vic-2"
         },
         "virtualNetworkName": {
-            "value": "TonyStark"
+            "value": "VirtualNetwork"
         },
         "subnetName1": {
             "value": "subnet-1"
@@ -30,7 +30,7 @@
             "value": "10.0.0.0/24"
         },
         "addressPrefix": {
-            "value": "10.0.0.0/24"
+            "value": "10.0.0.0/16"
         },
         "networkSecurityGroupName": {
             "value": "nsg"

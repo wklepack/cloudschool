@@ -62,7 +62,7 @@
                 "mode": "Incremental",
                 "templateLink": {
                     "contentVersion": "1.0.0.0",
-                    "uri": "linkedTemplate/nsg-template.json"
+                    "uri": "https://raw.githubusercontent.com/wklepack/cloudschool/master/week3/task2/linkedTemplate/nsg-template.json"
                 },
                 "parameters": {
                     "networkSecurityGroupName": {
@@ -82,9 +82,12 @@
                 "mode": "Incremental",
                 "templateLink": {
                     "contentVersion": "1.0.0.0",
-                    "uri": "linkedTemplate/vnet-template.json"
+                    "uri": "https://raw.githubusercontent.com/wklepack/cloudschool/master/week3/task2/linkedTemplate/vnet-template.json"
                 },
                 "parameters": {
+                    "virtualNetworkName": {
+                        "value": "[parameters('virtualNetworkName')]"
+                    },
                     "networkSecurityGroupName": {
                         "value": "[parameters('networkSecurityGroupName')]"
                     },
@@ -102,118 +105,6 @@
                     },
                     "addressPrefix": {
                         "value": "[parameters('addressPrefix')]"
-                    }
-                }
-            }
-        },
-        {
-            "name": "[parameters('networkInterfaceName1')]",
-            "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2017-06-01",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[concat('Microsoft.Resources/deployments/','nsg-template')]",
-                "[concat('Microsoft.Resources/deployments/','vnet-template')]"
-            ],
-            "properties": {
-                "ipConfigurations": [{
-                    "name": "ipconfig1",
-                    "properties": {
-                        "subnet": {
-                            "id": "[variables('subnetRef1')]"
-                        },
-                        "privateIPAllocationMethod": "Dynamic"
-                    }
-                }],
-                "networkSecurityGroup": {
-                    "id": "[variables('nsgId')]"
-                }
-            },
-            "tags": {}
-        },
-        {
-            "name": "[parameters('networkInterfaceName2')]",
-            "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2017-06-01",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[concat('Microsoft.Resources/deployments/','nsg-template')]",
-                "[concat('Microsoft.Resources/deployments/','vnet-template')]"
-            ],
-            "properties": {
-                "ipConfigurations": [{
-                    "name": "ipconfig1",
-                    "properties": {
-                        "subnet": {
-                            "id": "[variables('subnetRef2')]"
-                        },
-                        "privateIPAllocationMethod": "Dynamic"
-                    }
-                }]
-            },
-            "tags": {}
-        },
-        {
-            "apiVersion": "2015-01-01",
-            "name": "vm1-template",
-            "type": "Microsoft.Resources/deployments",
-            "dependsOn": [
-                "[concat('Microsoft.Resources/deployments/','nsg-template')]",
-                "[concat('Microsoft.Resources/deployments/','vnet-template')]",                
-                "[concat('Microsoft.Network/networkInterfaces', parameters('networkInterfaceName2')]"
-            ],
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "contentVersion": "1.0.0.0",
-                    "uri": "linkedTemplate/vm-template.json"
-                },
-                "parameters": {
-                    "networkSecurityGroupName": {
-                        "value": "[parameters('networkSecurityGroupName')]"
-                    },
-                    "name": {
-                        "value": "[variables('virtualMachineName2')]"
-                    },
-                    "nicName": {
-                        "value": "[variables('networkInterfaceName2')]"
-                    },
-                    "adminUsername": {
-                        "value": "[variables('adminUsername')]"
-                    },
-                    "adminPassword": {
-                        "value": "[variables('adminPassword')]"
-                    }
-                }
-            }
-        },
-        {
-            "apiVersion": "2015-01-01",
-            "name": "vm2-template",
-            "type": "Microsoft.Resources/deployments",
-            "dependsOn": [
-                "[concat('Microsoft.Resources/deployments/','nsg-template')]",
-                "[concat('Microsoft.Resources/deployments/','vnet-template')]",
-                "[concat('Microsoft.Network/networkInterfaces', parameters('networkInterfaceName2')]"
-            ],
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "contentVersion": "1.0.0.0",
-                    "uri": "linkedTemplate/vm-template.json"
-                },
-                "parameters": {
-                    "name": {
-                        "value": "[variables('virtualMachineName2')]"
-                    },
-                    "nicName": {
-                        "value": "[variables('networkInterfaceName2')]"
-                    },
-                    "adminUsername": {
-                        "value": "[variables('adminUsername')]"
-                    },
-                    "adminPassword": {
-                        "value": "[variables('adminPassword')]"
                     }
                 }
             }
