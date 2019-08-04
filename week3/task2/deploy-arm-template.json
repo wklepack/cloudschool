@@ -189,7 +189,7 @@
         },
         {
             "apiVersion": "2015-01-01",
-            "name": "vm1-template",
+            "name": "vm2-template",
             "type": "Microsoft.Resources/deployments",
             "dependsOn": [
                 "[concat('Microsoft.Resources/deployments/','nsg-template')]",
