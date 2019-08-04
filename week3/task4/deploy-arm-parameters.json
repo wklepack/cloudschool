@@ -41,7 +41,7 @@
         "adminPassword": {
             "reference": {
                 "keyVault": {
-                    "id": "subscriptions/<subscriptionId/resourcegroups/wkcs-test-rg/providers/Microsoft.KeyVault/vaults/wkscVaul"
+                    "id": "/subscriptions/<subscriptionId>/resourcegroups/wkcs-test-rg/providers/Microsoft.KeyVault/vaults/wkscVault"
                 },
                 "secretName": "vmWeek3Password"
             }
