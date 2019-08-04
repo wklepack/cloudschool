@@ -27,7 +27,7 @@
             "value": "subnet-2"
         },
         "subnetPrefix2": {
-            "value": "10.0.0.0/24"
+            "value": "10.0.1.0/24"
         },
         "addressPrefix": {
             "value": "10.0.0.0/16"
