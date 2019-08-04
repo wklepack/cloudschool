@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "name": {
+      "type": "string"
+    },
+    "adminUsername": {
+      "type": "string"
+    },
+    "adminPassword": {
+      "type": "securestring"
+    },
+    "nicName": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "osVersion": "18.04-LTS",
+    "osImagePublisher": "Canonical",
+    "osName": "UbuntuServer",
+    "vmSize": "Standard_B1s",
+    "diskName": "[concat(parameters('name'),'-','disk')]"
+  },
+  "resources": [
+    {
+      "apiVersion": "2019-03-01",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('name')]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[variables('vmSize')]"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "[variables('osImagePublisher')]",
+            "offer": "[variables('osName')]",
+            "sku": "[variables('osVersion')]",
+            "version": "latest"
+          },
+          "osDisk": {
+            "name": "[variables('diskName')]",
+            "caching": "ReadWrite",
+            "createOption": "FromImage"
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [{
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('nicName'))]"
+          }]
+      },
+        "osProfile": {
+          "computerName": "[parameters('name')]",
+          "adminUsername": "[parameters('adminUsername')]",
+          "adminPassword": "[parameters('adminPassword')]"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}

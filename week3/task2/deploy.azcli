@@ -1,0 +1,1 @@
+az group deployment create --name week3_task2 --resource-group "wkcs-test-rg" --template-file deploy-arm-template.json --parameters deploy-arm-parameters.json

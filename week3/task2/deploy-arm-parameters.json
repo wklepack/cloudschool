@@ -1,0 +1,45 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachineName1": {
+            "value": "vm-1"
+        },
+        "virtualMachineName2": {
+            "value": "vm-2"
+        },
+        "networkInterfaceName1": {
+            "value": "vic-1"
+        },
+        "networkInterfaceName2": {
+            "value": "vic-2"
+        },
+        "virtualNetworkName": {
+            "value": "TonyStark"
+        },
+        "subnetName1": {
+            "value": "subnet-1"
+        },
+        "subnetPrefix1": {
+            "value": "10.0.0.0/24"
+        },
+        "subnetName2": {
+            "value": "subnet-2"
+        },
+        "subnetPrefix2": {
+            "value": "10.0.0.0/24"
+        },
+        "addressPrefix": {
+            "value": "10.0.0.0/24"
+        },
+        "networkSecurityGroupName": {
+            "value": "nsg"
+        },
+        "adminUsername": {
+            "value": "TonyStark"
+        },
+        "adminPassword": {
+            "value": "Qwe12#$"
+        }
+    }
+}
