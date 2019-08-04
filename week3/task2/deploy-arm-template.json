@@ -41,6 +41,9 @@
         },
         "networkSecurityGroupName" : {
             "type" : "string"
+        },
+        "virtualNetworkName" : {
+            "type" : "string"
         }
     },
     "variables": {
@@ -99,6 +102,9 @@
                     },
                     "addressPrefix": {
                         "value": "[parameters('addressPrefix')]"
+                    },
+                    "virtualNetworkName": {
+                        "value": "[parameters('virtualNetworkName')]"
                     }
                 }
             }
