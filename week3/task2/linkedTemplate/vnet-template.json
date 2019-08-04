@@ -24,9 +24,12 @@
             "type": "string"
         }
     },
+    "variables": {
+        "virtualNetworkName": "virtualNetwork"
+      },
     "resources": [
         {
-            "name": "[parameters('virtualNetworkName')]",
+            "name": "[variables('virtualNetworkName')]",
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2018-08-01",
             "location": "[resourceGroup().location]",

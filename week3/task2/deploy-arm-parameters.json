@@ -14,9 +14,6 @@
         "networkInterfaceName2": {
             "value": "vic-2"
         },
-        "virtualNetworkName": {
-            "value": "VirtualNetwork"
-        },
         "subnetName1": {
             "value": "subnet-1"
         },

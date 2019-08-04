@@ -6,9 +6,6 @@
             "type": "string",
             "defaultValue": "[resourceGroup().location]"
         },
-        "virtualNetworkName": {
-            "type": "string"
-        },
         "subnetName1": {
             "type": "string"
         },
@@ -85,9 +82,6 @@
                     "uri": "https://raw.githubusercontent.com/wklepack/cloudschool/master/week3/task2/linkedTemplate/vnet-template.json"
                 },
                 "parameters": {
-                    "virtualNetworkName": {
-                        "value": "[parameters('virtualNetworkName')]"
-                    },
                     "networkSecurityGroupName": {
                         "value": "[parameters('networkSecurityGroupName')]"
                     },
